@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title>GPX track</title>
+<style type="text/css">
+html, body, #map_canvas { width: 100%; height: 100%; margin: 0; padding: 0 }
+</style>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+<script type="text/javascript">
+function initialize() {
+var map = new google.maps.Map(document.getElementById("map_canvas"), {
+  mapTypeId: google.maps.MapTypeId.TERRAIN
+});
+$.ajax({
+ type: "GET",
+ url: getQueryVariable("file"),
+ dataType: "xml",
+ success: function(xml) {
+   var points = [];
+   var bounds = new google.maps.LatLngBounds ();
+   $(xml).find("trkpt").each(function() {
+     var lat = $(this).attr("lat");
+     var lon = $(this).attr("lon");
+     var p = new google.maps.LatLng(lat, lon);
+     points.push(p);
+     bounds.extend(p);
+   });
+   var poly = new google.maps.Polyline({
+     path: points,
+     strokeColor: "#0000FF",
+     strokeOpacity: .7,
+     strokeWeight: 4
+   });
+   poly.setMap(map);
+   map.fitBounds(bounds);
+ }
+});
+}
+function getQueryVariable(variable) {
+  var query = window.location.search.substring(1);
+  var vars = query.split("&");
+  for (var i=0;i<vars.length;i++) {
+    var pair = vars[i].split("=");
+    if (pair[0] == variable) {
+      return pair[1];
+    }
+  }
+  alert('Query Variable "' + variable + '" not found');
+}
+
+</script>
+</head>
+<body onload="initialize()">
+  <div id="map_canvas"></div>
+</body>
+</html>
