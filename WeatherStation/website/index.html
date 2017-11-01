@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset = "utf-8">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+  <style>
+    body {
+      padding-top: 5rem;
+   }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="http://www.avislab.com/blog/">Avislab</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="http://www.avislab.com/blog/meteo_esp/">About meteostation</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://github.com/">Download source</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div role="main" class="container">
+    <div>
+      <h1>Weather in Kiev</h1>
+	<dl class="row">
+	  <dt class="col-sm-3">Date/Time of Last Update:</dt>
+	  <dd class="col-sm-9" id="date"></dd>
+	  <dt class="col-sm-3">Temperature, C:</dt>
+	  <dd class="col-sm-9" id="temperature"></dd>
+	  <dt class="col-sm-3">Pressure, mmHg:</dt>
+	  <dd class="col-sm-9" id="pressure"></dd>
+	  <dt class="col-sm-3">Humidity, %:</dt>
+	  <dd class="col-sm-9" id="humidity"></dd>
+	</dl>
+    </div>
+ 
+    <div class="chart_container">
+      <h1>Weather report from last 24 hours</h1>
+      <div id="chartTemperature24h"></div>
+      <div id="chartPressure24h"></div>
+      <div id="chartHumidity24h"></div>
+    </div>
+
+    <div class="chart_container">
+      <h1>Weather report from last 3 days</h1>
+      <div id="chartTemperature3d"></div>
+      <div id="chartPressure3d"></div>
+      <div id="chartHumidity3d"></div>
+    </div>
+  
+    <div class="chart_container">
+      <h1>Weather report from last week</h1>
+      <div id="chartTemperature7d"></div>
+      <div id="chartPressure7d"></div>
+      <div id="chartHumidity7d"></div>
+    </div>
+
+    <footer class="blockquote-footer">&copy; Andrey Koryagin 2017. Ukraine, Kiev</footer>
+
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="date.format.js"></script>
+  <script type="text/javascript" src="weather.js"></script>
+</body>
+</html>
+

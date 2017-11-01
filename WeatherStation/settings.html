@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather station Settings</title>
+  <meta charset = "utf-8">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/ico" href="favicon.ico" />
+  <script type="text/javascript" src="settings.js"></script>
+</head>
+
+<body>
+
+<header>ESP8266 Weather station v0.1</header>
+
+  <div class="main">
+   <div class="block-content">
+    <div class="b_title">Wi-Fi Options</div>
+    <div class="b_content">
+    <label>SSID:</label><input id="wifi_ssid" type="text" value="" pattern="[A-Za-z0-9]{4,20}" required title="4 to 20 characters or digits">
+    <label>Password:</label><input id="wifi_pwd" type="password" value="" pattern="[A-Za-z0-9]{8,20}" required title="8 to 20 characters or digits">
+    <div class="b_clear"></div>
+    </div>
+
+    <div class="b_title">Own Wi-Fi AP</div>
+    <div class="b_content">
+    <label>SSID:</label><input id="ap_ssid" type="text" value="" pattern="[A-Za-z0-9]{4,20}" required title="4 to 20 characters or digits">
+    <label>Password:</label><input id="ap_pwd" type="password" value="" pattern="[A-Za-z0-9]{8,20}" required title="8 to 20 characters or digits">
+    <div class="b_clear"></div>
+    </div>
+
+    <div class="b_title">Cron</div>
+    <div class="b_content">
+    <label>Mask:</label><input id="cron_mask" type="text" value="" pattern="[0-9\*\/ ]{9,20}" required title="cron mask">
+    <div class="b_clear"></div>
+    </div>
+
+    <div class="b_title">Data storage</div>
+    <div class="b_content">
+    <label>Filename:</label><input id="data_file" type="text" value="" pattern="[A-Za-z0-9\._]{5,20}" required title="5 to 20 characters or digits">
+    <label>Max File size, byte:</label><input id="data_file_max_size" type="text" value="" pattern="[0-9]{3,6}" required title="digits 999...999999">
+	<label>Store last lines when file reduce:</label><input id="data_file_lines" type="text" value="" pattern="[0-9]{1,5}" required title="digits 0...99999">
+    <div class="b_clear"></div>
+    </div>
+
+    <div class="b_title">Send to Web</div>
+    <div class="b_content">
+    <label>URL:</label><input id="web_url" type="text" value="" pattern="http://[A-Za-z0-9\._\/]{10,50}" required title="For example: http://mysite.com/weather/get.php">
+    <label>ID:</label><input id="web_id" type="text" value="" pattern="[0-9]{1,3}" required title="1 to 3 digits">
+	<label>Key:</label><input id="web_key" type="text" value="" pattern="[A-Za-z0-9!@#$%^-_=+]{12,16}" required title="12 to 16 characters or digits">
+	<label>Queue filename:</label><input id="web_queue_file" type="text" value="" pattern="[A-Za-z0-9\._]{5,20}" required title="5 to 20 characters or digits">
+	<select id="web_enable"><option value="0">Disable</option><option value="1">Enable</option></select>
+    <div class="b_clear"></div>
+    </div>
+
+    <div class="b_title">Send to thingspeak.com</div>
+    <div class="b_content">
+    <label>Server name:</label><input id="thingspeak_url" type="text" value="" pattern="[A-Za-z0-9\._\/]{10,50}" required title="For example: api.thingspeak.com">
+    <label>API KEY:</label><input id="thingspeak_api_key" type="text" value="" pattern="[A-Za-z0-9]{10,50}" required title="10 to 50 characters or digits">
+	<select id="thingspeak_enable"><option value="0">Disable</option><option value="1">Enable</option></select>
+
+    <div class="b_clear"></div>
+    <button class="submit-btn" onclick="submit_cfg()">Save configuration</button>
+    <div class="b_clear"></div>
+    </div>
+   </div>
+ </div>
+
+<script>
+  loadJSON('loadcfg', function(response) {
+    var json_obj = JSON.parse(response);
+	fill_fields(json_obj);
+  });
+</script>
+
+<footer>&copy; Andrey Koryagin 2017. Ukraine, Kremenchug</footer>
+</body>
+</html>
+

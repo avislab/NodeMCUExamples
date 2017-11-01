@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather station</title>
+  <meta charset = "utf-8">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.drawsvg/1.1.0/jquery.drawsvg.min.js"></script>
+
+  <script type="text/javascript" src="date.format.js"></script>
+  <script type="text/javascript" src="weather.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/ico" href="favicon.ico" />
+
+</head>
+
+<body>
+
+<div class="intro">
+  <div class="container">
+    <div class="overlay">
+      <div class="inner">
+        <h1>ESP8266 Weather station</h1>
+        <div class="items-wrapper">
+          <div class="item active">
+            <svg viewBox="0 0 400 200" class="svgClass" style="background-color:#ffffff00" xmlns="https://www.w3.org/2000/svg" width="400" height="200">
+              <g stroke="#FFF" stroke-width="1" fill="none">
+                <path style="fill:none;stroke:#ffffff;stroke-width:2.64583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+                  d="M 27.578466,133.9598 C 28.678753,121.12621 36.5168,114.4219 47.840109,110.88813 49.044752,88.446447 60.027727,76.234315 81.725938,75.231939 91.888338,32.924205 135.2153,31.86221 150.89495,61.598686 c 24.06191,0.763626 37.32124,12.737484 38.0779,37.753621 31.60778,23.922793 19.55753,54.261383 -9.08281,63.971423 L 49.936144,162.97415 C 34.331598,161.10223 28.302894,149.772 27.578466,133.9598 Z"
+                  id="path74"
+                  inkscape:connector-curvature="0"
+                  sodipodi:nodetypes="cccccccc" />
+                <path style="fill:none;stroke:#ffffff;stroke-width:2.64583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+                  d="m 48.069865,108.04714 -5.284331,2.4894 -0.102213,-13.838023 -1.930142,-2.877745 -14.859388,-0.946326 6.390447,-11.497057 -0.472844,-4.110027 -12.86567,-7.898964 12.805728,-7.796577 0.388094,-3.947663 -7.067951,-12.708135 15.374633,-0.123599 2.134776,-1.829034 0.494045,-15.321128 12.784528,7.383391 3.83911,-1.66667 7.216276,-12.178634 7.544429,13.516939 4.047377,0.635525 12.022275,-7.281006 0.719878,15.303562 2.155977,2.114993 8.920581,-0.225985"
+                  id="path76"
+                  inkscape:connector-curvature="0"
+                  sodipodi:nodetypes="ccccccccccccccccccccccc" />
+                <path style="fill:none;stroke:#ffffff;stroke-width:2.64583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+                    d="m 48.685205,103.19413 -1.543853,-0.0618 -0.247035,-9.763759 -4.199363,-4.325713 -9.633823,-0.370776 4.199363,-7.786289 -1.235124,-6.921143 -7.781164,-4.820083 8.028199,-5.067267 1.235098,-6.797554 -4.322854,-7.415511 9.386788,-0.494367 4.940416,-4.449308 -0.247035,-9.763757 8.522217,4.449307 6.051996,-1.35951 5.187451,-8.280656 4.693407,8.033473 6.175514,1.730285 8.522243,-4.449308 0.247035,10.010942 4.446372,3.707756 4.940416,0.556165"
+                  id="path78"
+                  inkscape:connector-curvature="0"
+                  sodipodi:nodetypes="ccccccccccccccccccccccc" />
+                <path style="fill:none;stroke:#ffffff;stroke-width:2.64583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+                  d="M 88.579139,58.330287 C 79.792999,43.397011 60.473671,43.420596 50.987285,51.648087 40.831734,60.45596 40.179169,80.331043 54.798999,87.559765"
+                  id="path82"
+                  inkscape:connector-curvature="0"
+                  sodipodi:nodetypes="csc" />
+                <path style="fill:none;stroke:#ffffff;stroke-width:2.64583333;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+                  d="m 111.18296,73.244504 h 25.93093 l -17.62492,33.372826 16.20684,0.21126 -40.719715,47.94703 17.219795,-35.69627 H 92.139896 Z"
+                  id="path84"
+                  inkscape:connector-curvature="0" />
+              </g>
+            </svg>
+          </div>
+        </div>
+		<h1>Loading...</h1>
+		<h1>http://avislab.com/blog/</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<header>ESP8266 Weather station v0.1</header>
+
+<div class="tabs">
+  <ul>
+    <li>Weather now</li>
+    <li>Last 24 hours</li>
+    <li>Last 3 days</li>
+    <li>Last week</li>
+  </ul>
+
+  <div>
+    <div>
+      <h3>Weather now</h3>
+      <label>Date/Time of Last Update:</label>
+      <div id="date"></div>
+      <label>Temperature, C:</label>
+      <div id="temperature"></div>
+      <label>Pressure, mmHg:</label>
+      <div id="pressure"></div>
+      <label>Humidity, %:</label>
+      <div id="humidity"></div>
+    </div>
+ 
+    <div class="chart_container">
+      <h3>Weather report from last 24 hours</h3>
+      <div id="chartTemperature24h"></div>
+      <div id="chartPressure24h"></div>
+      <div id="chartHumidity24h"></div>
+    </div>
+
+    <div class="chart_container">
+      <h3>Weather report from last 3 days</h3>
+      <div id="chartTemperature3d"></div>
+      <div id="chartPressure3d"></div>
+      <div id="chartHumidity3d"></div>
+    </div>
+  
+    <div class="chart_container">
+      <h3>Weather report from last week</h3>
+      <div id="chartTemperature7d"></div>
+      <div id="chartPressure7d"></div>
+      <div id="chartHumidity7d"></div>
+    </div>
+  </div>
+</div>
+<footer>&copy; Andrey Koryagin 2017. Ukraine, Kremenchug</footer>
+</body>
+</html>
+

@@ -1,0 +1,268 @@
+body {
+  font-size: 100%;
+  font-family: 'Open Sans', sans-serif;
+  color: #444;
+  margin:0;
+  background-color: #F3F3F3;
+}
+
+h1 {
+  font-size: 1.25em;
+  margin: 1.5em 0;
+  color: #fff;
+}
+
+h2 {
+  font-size: 1.88em;
+  margin: 1.5em 0;
+  color: #4991BC;
+}
+
+h3 {
+  font-size: 1.88em;
+  margin: 0.5em;
+  color: #4991BC;
+}
+
+
+header {
+  display:block;
+  padding:7px 10px;
+  background-color: #64A0C3;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+footer {
+  display:block;
+  padding:7px 10px;
+  background-color: #4991BC;
+  color: #fff;
+  text-align: center;
+}
+
+.main {
+  min-height: 50px;
+}
+
+.block-content {
+  background-color: #EFEFEF;
+  margin: 10px auto;
+  min-width: 310px;
+  max-width: 360px;
+  width: 95%;
+}
+
+.b_title {
+  background-color: #D0DDE3;
+  padding: 7px 10px;
+  text-align: center;
+  color: #637B85;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.b_content {
+  padding: 3px 10px;
+}
+
+.submit-btn {
+  margin-bottom: 5px;
+  float: right;
+  background: #5CB85C;
+  border: 1px solid #398439;
+  color: #fff;
+  height: 30px;
+  padding: 6px 12px;
+  box-shadow: 0 1px 0 #006799;
+  border-radius: 4px;
+}
+
+.submit-btn:hover {
+  background: #449d44;
+}
+
+.b_clear {
+  clear: both;
+  height: 3px;
+}
+
+#date, #temperature, #pressure, #humidity {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #4991BC;
+  margin-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+label {
+  display: block;
+  margin-top:10px;
+}
+
+/* Intro */
+.intro {
+  background: #4991BC;
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.intro .container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 60px;
+}
+
+.intro .overlay {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  color: #FFF;
+  display: table;
+}
+
+.intro .overlay .inner {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.intro .items-wrapper {
+  width: 220px;
+  height: 220px;
+  position: relative;
+  margin: auto;
+}
+
+.intro .overlay h1 {
+  margin: 0;
+}
+
+.intro .item,
+.intro .item svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.intro .item svg {
+  visibility: hidden;
+}
+
+.intro .item svg.drawsvg-initialized {
+  visibility: visible;
+}
+
+.intro .item {
+  -webkit-transition: 0.6s;
+          transition: 0.6s;
+  opacity: 0;
+  -webkit-transform: translate3d(0, 30px, 0);
+      -ms-transform: translate3d(0, 30px, 0);
+       -o-transform: translate3d(0, 30px, 0);
+          transform: translate3d(0, 30px, 0);
+}
+
+@-webkit-keyframes comeIn {
+  from {
+    -webkit-transform: translate3d(0, -30px, 0);
+            transform: translate3d(0, -30px, 0);
+  }
+  to {
+    -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+  }
+}
+
+@-o-keyframes comeIn {
+  from {
+    -o-transform: translate3d(0, -30px, 0);
+       transform: translate3d(0, -30px, 0);
+  }
+  to {
+    -o-transform: translate3d(0, 0, 0);
+       transform: translate3d(0, 0, 0);
+  }
+}
+
+@-moz-keyframes comeIn {
+  from {
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes comeIn {
+  from {
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.intro .item.active {
+  opacity: 1;
+  -webkit-animation: comeIn 0.6s forwards;
+          animation: comeIn 0.6s forwards;
+}
+
+.intro .item svg {
+  margin: auto;
+}
+
+
+/* Tabs */
+.tabs{
+    display:inline-block;
+	width: 100%;
+}
+
+.tabs > div{
+    padding-top:10px;
+}
+
+.tabs ul{
+    margin:0px;
+    padding:0px;
+}
+
+.tabs ul:after{
+    content:"";
+    display:block;
+    clear:both;
+    height:5px;
+    background:#4991BC;
+}
+
+.tabs ul li{
+    margin:0px;
+    padding:0px;
+    cursor:pointer;
+    display:block;
+    float:left;
+    padding:10px 15px;
+    background:#e9eaeb;
+    color:#707070;
+}
+
+.tabs ul li.active, .tabs ul li.active:hover{
+    background:#4991BC;
+    color:#fff;
+}
+
+.tabs ul li:hover{
+    background:#d6d6d7;
+}
+
+
