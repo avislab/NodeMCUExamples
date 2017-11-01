@@ -2,7 +2,7 @@
 //=======================================
 // Settings
 //=======================================
-$key = 'Ab$49nVG67cjkff4';
+$key = 'AAAAAAAAAAAAAAAA';
 $file_name = 'meteo.txt';
 $file_max_size = 400000;
 $file_lines = 2880;  // 4*24*7 // last 7 days
@@ -39,9 +39,9 @@ function meteo_SaveData() {
 
   $data =  base64_decode($_POST['data']);
   $key_data = trim(mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, hexToStr($_POST['key']), 'ecb'));
-  
+
   preg_match_all("/([^,:]+),/i", $data, $fields);
-  
+
   if ($key_data == $fields[1][0]) {
     $fp = fopen ($file_name, "a");
     fwrite ($fp, $data);
@@ -54,10 +54,10 @@ function meteo_SaveData() {
 }
 
 //=======================================
-// Check file size and 
+// Check file size and
 function meteo_DeleteOldData() {
   global $file_name, $file_max_size, $file_lines;
-  
+
   if (filesize($file_name) > $file_max_size) { // if file size so big
     $file_name_tmp = $file_name.'.tmp';
 
@@ -85,7 +85,7 @@ function meteo_DeleteOldData() {
           unlink($file_name_tmp); // remove temporary file
           print "Done";
         }
-      }       
+      }
     }
   }
 }
