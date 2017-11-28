@@ -18,13 +18,17 @@ dofile("BME280_init.lua")
 dofile("BME280_read.lua")
 
 -- Init Display
-dofile('display_init.lua')
-dofile('display_show.lua')
+if cfg.display==1 then
+  dofile('display_init.lua')
+  dofile('display_show.lua')
+end
 
 -- Start timer
 tmr.register(1, 10000, tmr.ALARM_AUTO, function()
-  dofile("BME280_read.lua");
-  dofile('display_show.lua')
+  dofile("BME280_read.lua")
+  if cfg.display==1 then
+    dofile('display_show.lua')
+  end
 end)
 tmr.start(1)
 

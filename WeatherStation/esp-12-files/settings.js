@@ -1,4 +1,4 @@
-params=['cron_mask','wifi_ssid','wifi_pwd','ap_ssid','ap_pwd','data_file','data_file_max_size','data_file_lines','web_url','web_id','web_key','web_queue_file','web_enable','thingspeak_url','thingspeak_api_key','thingspeak_enable'];
+params=['cron_mask','wifi_ssid','wifi_pwd','ap_ssid','ap_pwd','data_file','data_file_max_size','data_file_lines','web_url','web_id','web_key','web_queue_file','web_enable','thingspeak_url','thingspeak_api_key','thingspeak_enable', 'display'];
 
 function loadJSON(json_url, callback) {
 
@@ -18,7 +18,7 @@ function submit_cfg() {
   for (i=0; i<params.length; i++) {
 	ele = document.getElementById(params[i]);
 	if (ele.checkValidity() == false) {
-		alert("One or more parameters is wrong. Please check form fields.");
+		alert("One or more parameters(" + params[i] + ")is wrong. Please check form fields.");
 		return;
 	}
 
