@@ -1,6 +1,3 @@
--- Send data to site thingspeak.com 
--- andre@avislab.com Jaga123Jaga321
-
 local function postThingSpeak(api_key, data)
     local connout = nil
     local connout = net.createConnection(net.TCP, 0)
