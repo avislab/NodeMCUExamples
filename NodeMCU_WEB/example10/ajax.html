@@ -1,0 +1,41 @@
+<html>
+  <title>NodeMCU</title>
+<body>
+<h1>NodeMCU AJAX</h1>
+<hr>
+
+Temperature: <div id="temperature"></div>
+Humidity: <div id="humidity"></div>
+Timer: <div id="timer"></div>
+
+<script>
+id = 0;
+refresh_data();
+
+function refresh_data() {
+  loadJSON('get_json.lua', function(response) {
+    var json_obj = JSON.parse(response);
+    document.getElementById('temperature').innerHTML = json_obj.temperature;
+    document.getElementById('humidity').innerHTML = json_obj.humidity;
+    document.getElementById('timer').innerHTML = '<b>'+json_obj.timer+'</b>';
+    clearTimeout(id);
+    id = setTimeout("refresh_data()",1000);
+  });
+}
+
+function loadJSON(json_url, callback) {
+  var xobj = new XMLHttpRequest();
+  xobj.overrideMimeType("application/json");
+  xobj.open('GET', json_url, true);
+  xobj.onreadystatechange = function () {
+    if (xobj.readyState == 4 && xobj.status == "200") {
+      callback(xobj.responseText);
+    }
+  };
+  xobj.send(null);
+}
+  
+</script>
+
+</body>
+</html>

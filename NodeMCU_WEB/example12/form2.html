@@ -1,0 +1,38 @@
+<html>
+  <title>NodeMCU</title>
+<body>
+<h1>NodeMCU Form</h1>
+<hr>
+<form method="POST" action="post2.lua">
+<label for="name">Name:</label>
+<input type="txt" name="name" id="name" value="">
+<label for="phone">Phone:</label>
+<input type="txt" name="phone" id="phone" value="">
+<button>Submit</button>
+</form>
+
+<script>
+loadJSON('settings.json', function(response) {
+  var json_obj = JSON.parse(response);
+
+  document.getElementById('name').value = json_obj.name;
+  document.getElementById('phone').value = json_obj.phone;
+});
+
+
+function loadJSON(json_url, callback) {
+  var xobj = new XMLHttpRequest();
+  xobj.overrideMimeType("application/json");
+  xobj.open('GET', json_url, true);
+  xobj.onreadystatechange = function () {
+    if (xobj.readyState == 4 && xobj.status == "200") {
+      callback(xobj.responseText);
+    }
+  };
+  xobj.send(null);
+}
+  
+</script>
+
+</body>
+</html>

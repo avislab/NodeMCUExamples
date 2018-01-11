@@ -1,0 +1,29 @@
+<html>
+  <title>NodeMCU</title>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script>
+var app = angular.module("myApp", []); 
+    app.controller("myCtrl", function($http, $scope, $interval) {
+
+    $scope.get_data = function() {
+        $http.get('get_json.lua').then(function(response) {
+            $scope.data = response.data;
+        });
+    }
+
+    $scope.get_data();
+    $interval($scope.get_data, 1000);
+});
+</script>
+<h1>NodeMCU Auto refresh (angular)</h1>
+<hr>
+
+<div ng-app="myApp" ng-controller="myCtrl">
+Temperature: <div>{{data.temperature}}</div>
+Humidity: <div>{{data.humidity}}</div>
+Timer: <div><b>{{data.timer}}</b></div>
+</div>
+
+</body>
+</html>

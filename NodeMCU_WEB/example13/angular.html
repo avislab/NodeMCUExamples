@@ -1,0 +1,37 @@
+<html>
+  <title>NodeMCU</title>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script>
+var app = angular.module("myApp", []); 
+    app.controller("myCtrl", function($http, $scope) {
+
+    $http.get('settings.json').then(function(response) {
+        $scope.data = response.data;
+    });
+    $scope.submit = function() {
+      console.log($scope.data);
+      $http.post('post_json.lua', "data=" + encodeURIComponent(JSON.stringify($scope.data))).then(function(response) {
+        if (response.data.result == 'OK') {
+          alert('Saved successfully');
+        }
+        else {
+          alert(response.data.result);
+        }
+      });
+    }
+    
+});
+</script>
+<h1>NodeMCU Form</h1>
+<hr>
+<form ng-app="myApp" ng-controller="myCtrl">
+<label for="name">Name:</label>
+<input type="txt" ng-model="data.name">
+<label for="phone">Phone:</label>
+<input type="txt" ng-model="data.phone">
+<button ng-click="submit()">Submit</button>
+</form>
+
+</body>
+</html>
