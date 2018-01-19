@@ -4,7 +4,7 @@ sv=net.createServer(net.TCP)
 function receiver(sck, data)    
   -- Print received data
   print(data)
-  -- Send reply
+  -- Send response
   sck:on("sent", function(sck) sck:close() end)
   sck:send("HTTP/1.0 200 OK\r\nServer: NodeMCU\r\nContent-Type: text/html\r\n\r\n"..
      "<html><title>NodeMCU</title><body>"..

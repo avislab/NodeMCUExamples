@@ -9,7 +9,7 @@ sv=net.createServer(net.TCP)
 function receiver(sck, data)    
   -- Print received data
   print(data)
-  -- Send reply
+  -- Send response
   sck:on("sent", function(sck) sck:close() end)
 
   filecontent = '';
